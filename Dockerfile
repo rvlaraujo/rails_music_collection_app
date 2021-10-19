@@ -2,7 +2,25 @@ FROM ruby:3.0.2-buster
 
 LABEL Name=railsmusiccollectionapp Version=0.0.1
 
-RUN apt-get update -qq \
+# Ensure we install an up-to-date version of Node
+# See https://github.com/yarnpkg/yarn/issues/2888
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+# Ensure latest packages for Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Allow apt to work with https-based sources
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+    apt-transport-https \
+    nodejs \
+    postgresql-client \
+    yarn
+
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+    apt-transport-https \
+    nodejs \
+    yarn \
     && apt-get install -y postgresql-client \
     && apt-get install libpq-dev
 WORKDIR /myapp
