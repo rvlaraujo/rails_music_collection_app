@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.webpacker.check_yarn_integrity = false
+
+  # set up the default URL options for the Devise mailer in development environment
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
