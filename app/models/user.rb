@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  enum role: { user: 0, admin: 1 }
+
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 6 }
   validates :full_name, presence: true, length: { minimum: 8 }
 

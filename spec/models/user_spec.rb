@@ -13,4 +13,8 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:full_name).is_at_least(8) }
     pending 'full name regex not permited numbers'
   end
+
+  context 'Role validations' do
+    it { should define_enum_for(:role).with_values(%i[user admin]) }
+  end
 end
