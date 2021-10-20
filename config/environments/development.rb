@@ -78,4 +78,6 @@ Rails.application.configure do
 
   # set up the default URL options for the Devise mailer in development environment
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.hosts << 'www.example.com'
 end

@@ -15,14 +15,10 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
     apt-transport-https \
     nodejs \
     postgresql-client \
-    yarn
-
-RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
-    apt-transport-https \
-    nodejs \
     yarn \
-    && apt-get install -y postgresql-client \
-    && apt-get install libpq-dev
+    chromium-driver \
+    libpq-dev
+
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock  /tmp/Gemfile.lock

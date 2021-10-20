@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   
   # Devise configurations for use custom field for User model
   protect_from_forgery with: :exception
