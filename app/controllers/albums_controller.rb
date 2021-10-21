@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
+    @artists = ArtistsManager::ListArtistsService.call
   end
 
   # GET /albums/1/edit

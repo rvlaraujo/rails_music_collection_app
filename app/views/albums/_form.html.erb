@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :artist_id %>
-    <%= form.number_field :artist_id %>
+    <%= form.select :artist_id, @artists.collect { |artist| [artist.name, artist.id] } %>
   </div>
 
   <div class="field">
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :year %>
-    <%= form.date_select :year %>
+    <%= form.text_field :year %>
   </div>
 
   <div class="actions">
