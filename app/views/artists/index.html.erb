@@ -18,6 +18,7 @@
         <td><%= artist.id %></td>
         <td><%= artist.name %></td>
         <td><%= artist.twitter %></td>
+        <td><%= link_to 'Show', artist_path(artist.id) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[show edit update destroy]
+  before_action :set_artists, only: %i[edit new create]
   skip_before_action :verify_authenticity_token
 
   # GET /albums or /albums.json
@@ -13,7 +14,6 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
-    @artists = ArtistsManager::ListArtistsService.call
   end
 
   # GET /albums/1/edit
@@ -69,6 +69,11 @@ class AlbumsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_album
     @album = Album.find(params[:id])
+  end
+
+  def set_artists
+    @client = MoatClient.new
+    @artists = @client.all_artists
   end
 
   # Only allow a list of trusted parameters through.
