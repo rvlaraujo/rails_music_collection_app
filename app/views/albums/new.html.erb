@@ -1,5 +1,7 @@
 <h1>New Album</h1>
-
+<p class="lead">
+  Enter with the follwing informations to create a New Album.
+</p>
+<p class="lead text-justifed fw-bold"><span class="text-danger">All Fields are obligatory</span></p>
 <%= render 'form', album: @album %>
-
-<%= link_to 'Back', albums_path %>
+<%= link_to 'Back',  albums_path, class: 'link-danger fw-bold' %>

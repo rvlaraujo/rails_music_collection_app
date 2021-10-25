@@ -2,7 +2,6 @@
   <% if album.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
-
       <ul>
         <% album.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,23 +9,25 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :artist_id %>
-    <%= form.select :artist_id, @artists.collect { |artist| [artist.name, artist.id] } %>
+  <div class="form-outline mb-4 text-start">
+    <%= form.label :artist_id, class: 'text-start form-label fw-bold' %>
+    <%= form.select :artist_id, @artists.collect { |artist| [artist.name, artist.id] }, {}, { :class => 'form-control form-control-lg' } %>
+    <div class="form-text" for="album_artist_id">Select one of the allowed Artists</div>
   </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-outline mb-4 text-start">
+    <%= form.label :name, class: 'text-start form-label fw-bold' %>
+    <%= form.text_field :name, class: "form-control form-control-lg", placeholder: "The Name of the Album" %>
+    <div class="form-text" for="album_name">Album name must be at least 1 character</div>
   </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
+  <div class="form-outline mb-4 text-start">
+    <%= form.label :year, class: 'text-start form-label fw-bold' %>
+    <%= form.number_field :year, class: "form-control form-control-lg", placeholder: "Only Numbers" %>
+    <div class="form-text" for="album_year">Only Numbers are permitted. Year must be less or equal to <%= Time.now.year %></div>
   </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create an Album", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
+<div class="divider d-flex align-items-center my-4">
+  <p class="text-center fw-bold mx-3 mb-0"></p>
+</div>
