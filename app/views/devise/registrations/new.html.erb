@@ -1,39 +1,56 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+<div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="col-md-9 col-lg-6 col-xl-5 py-5">
+    <div class="text-center m-4">
+      <%= image_tag 'rails-collection-music-logo.svg', style: 'width: 285px;'%>
+    </div>
+    <div class="card text-center mb-5">
+      <div class="card-header">
+        <h2>Sign up</h2>
+        <p class="text-center lead my-4">
+          Let's start your registry right now!
+        </p>
+      </div>
+      <div class="text-center p-4">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-outline mb-4 text-start">
+            <%= f.label :username, class: 'text-start form-label fw-bold' %>
+            <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control-lg", placeholder: "Your Username here" %>
+            <div class="form-text" for="user_username">Username must be at least 6 characters</div>
+          </div>
+          <div class="form-outline mb-4 text-start">
+            <%= f.label :full_name, class: 'text-start form-label fw-bold' %>
+            <%= f.text_field :full_name, class: "form-control form-control-lg", placeholder: "Your Full Name here" %>
+            <div class="form-text" for="user_full_name">Fullname must be at least 8 characters</div>
+          </div>
+          <div class="form-outline mb-4 text-start">
+            <%= f.label :role, class: 'text-start form-label fw-bold' %>
+            <%= f.select :role, User.roles.map { |key, value| [key.humanize, key] }, {}, { :class => 'form-control form-control-lg' } %>
+            <div class="form-text">Users must be a role</div>
+          </div>
+          <div class="form-outline mb-4 text-start">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.label :password, class: 'text-start form-label fw-bold' %>
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control form-control-lg", placeholder: "Your Password Here" %>
+            <div class="form-text" for="user_password">Password must be at least 6 characters</div>
+          </div>
+          <div class="form-outline mb-4 text-start">
+            <%= f.label :password_confirmation, class: 'text-start form-label fw-bold' %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg", placeholder: "Repeat Your Password" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Sign up", class: "btn btn-primary btn-lg", style: "padding-left: 2.5rem; padding-right: 2.5rem;" %>
+          </div>
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0"></p>
+          </div>
+          <div class="actions">
+            <p class="text-center lead my-4">Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: 'link-danger fw-bold' %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select :role, User.roles.map { |key, value| [key.humanize, key] } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
