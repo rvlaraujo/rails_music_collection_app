@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-      <%= yield %>
+    <!-- Navbar -->
+    <%= render "layouts/shared/navbar" %>
+    <!-- Main Content -->
+    <section class="bg-light vh-100 p-5 pt-lg-5 text-center text-sm-start">
+      <div class="container h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <%= yield %>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <%= render "layouts/shared/footer" %>
   </body>
 </html>

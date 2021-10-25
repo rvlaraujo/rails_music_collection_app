@@ -10,9 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <!-- NavBar -->
     <%= render "layouts/shared/devise/navbar" %>
     <!-- Main content -->
-    <section class="bg-light bg-opacity-10 vh-100 bg-light p-5 pt-lg-5 text-center text-sm-start">
+    <section class="bg-light bg-opacity-10 vh-100 p-5 pt-lg-5 text-center text-sm-start">
       <div class="container-fluid h-custom">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <%= yield %>
@@ -20,6 +21,6 @@
       </div>
     </section>
     <!-- Footer -->
-    <%= render "layouts/shared/devise/footer" %>
+    <%= render "layouts/shared/footer" %>
   </body>
 </html>
