@@ -10,33 +10,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
-      <div class="container">
-        <a href="#" class="navbar-brand">
-          Rails Collection Music
-        </a>
-        <button class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navmenu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id='navmenu'>
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a href="https://gitlab.com/rvlaraujo/rails_music_collection_app" target="_blank" class="nav-link">GitLab Repository</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" target="_blank" class="nav-link">GitHab Repository</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://gitlab.com/-/snippets/2167416" target="_blank" class="nav-link">About</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <%= render "layouts/shared/devise/navbar" %>
     <!-- Main content -->
     <section class="bg-light bg-opacity-10 vh-100 bg-light p-5 pt-lg-5 text-center text-sm-start">
       <div class="container-fluid h-custom">
@@ -46,14 +20,6 @@
       </div>
     </section>
     <!-- Footer -->
-    <footer class="mt-auto bg-primary text-white text-center text-lg-start fixed-bottom">
-      <div class="container">
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-          <div class="text-center">
-            <p class="lead">Developed by <a href="https://www.linkedin.com/in/rafael-viana-75529b32/" target="_blank" class="me-4 text-reset">rvlaraujo</a></p>
-          </div>
-        </section>
-      </div>
-    </footer>
+    <%= render "layouts/shared/devise/footer" %>
   </body>
 </html>
