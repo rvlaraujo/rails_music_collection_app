@@ -1,6 +1,11 @@
-<h1>Editing Album</h1>
-
+<div class="col-md">
+  <h1>Editing Album</h1>
+  <p class="lead">
+    Edit informations for the Album.
+  </p>
+  <p class="lead text-justifed fw-bold"><span class="text-danger">All Fields are obligatory</span></p>
+</div>
 <%= render 'form', album: @album %>
-
-<%= link_to 'Show', @album %> |
-<%= link_to 'Back', albums_path %>
+<div class="col-md">
+  <%= link_to 'Back',  albums_path, class: 'link-danger fw-bold' %>
+</div>

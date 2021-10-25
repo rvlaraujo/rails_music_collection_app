@@ -1,31 +1,45 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Albums</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>Name</th>
-      <th>Year</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.artist_id %></td>
-        <td><%= album.name %></td>
-        <td><%= album.year %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <h1>Albums</h1>
+</div>
+<div class="row">
+  <div class="col-md align-self-end offset-md">
+    <%= link_to new_album_path, class: 'btn btn-success text-white' do %>
+      <i class="bi bi-plus-lg"></i> New Album
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Album', new_album_path %>
+  </div>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @albums.each do |album| %>
+        <tr>
+          <td><%= album.artist_id %></td>
+          <td><%= album.name %></td>
+          <td><%= album.year %></td>
+          <td>
+            <%= link_to 'Show', album, class: 'btn btn-info text-white btn-sm' %>
+            <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-warning text-white btn-sm' %>
+            <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <td class="fw-bold">Total of <%= @albums.size %> Albuns</td>
+    </tfoot>
+  </table>
+</div>
+<div class="col-md">
+  <%= link_to new_album_path, class: 'btn btn-success text-white' do %>
+    <i class="bi bi-plus-lg"></i> New Album
+  <% end %>
+</div>
