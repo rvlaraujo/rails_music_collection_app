@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Artists#index</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Twitter</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @artists.each do |artist| %>
+<div class="row">
+  <h1>Artists</h1>
+</div>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= artist.id %></td>
-        <td><%= artist.name %></td>
-        <td><%= artist.twitter %></td>
-        <td><%= link_to 'Show', artist_path(artist.id) %></td>
+        <th>Name</th>
+        <th>Twitter</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    </thead>
+    <tbody>
+      <% @artists.each do |artist| %>
+        <tr>
+          <td><%= artist.name %></td>
+          <td><%= artist.twitter %></td>
+          <td><%= link_to 'Show', artist_path(artist.id), class: 'btn btn-info text-white btn-sm' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <td class="fw-bold">Total of <%= @artists.size %> Artists</td>
+    </tfoot>
+  </table>
+</div>
