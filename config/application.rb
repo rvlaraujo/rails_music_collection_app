@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -21,11 +21,15 @@ module RailsMusicCollectionApp
 
     # Devise Custom layout
     config.to_prepare do
-      Devise::SessionsController.layout "devise"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
-      Devise::ConfirmationsController.layout "devise"
-      Devise::UnlocksController.layout "devise"            
-      Devise::PasswordsController.layout "devise"        
+      Devise::SessionsController.layout 'devise'
+      Devise::RegistrationsController.layout proc { |_controller| user_signed_in? ? 'application' : 'devise' }
+      Devise::ConfirmationsController.layout 'devise'
+      Devise::UnlocksController.layout 'devise'
+      Devise::PasswordsController.layout 'devise'
+    end
+
+    ActionView::Base.field_error_proc = proc do |html_tag, _instance|
+      html_tag.gsub('form-control', 'form-control is-invalid').html_safe
     end
   end
 end

@@ -19,11 +19,6 @@
       <p class="text-center fw-bold mx-3 mb-0"></p>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <% flash.each do |type, message| %>
-        <%= content_tag :div do %>
-          <%= message %>
-        <%end%>
-      <% end %>
       <div class="form-outline mb-4">
         <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control form-control-lg", placeholder: "Username" %>
       </div>
