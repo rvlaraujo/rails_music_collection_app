@@ -9,10 +9,7 @@ class AlbumsController < ApplicationController
   end
 
   # GET /albums/1 or /albums/1.json
-  def show
-    client = MoatClient.new
-    @artist = client.find_artist(@album.artist_id)
-  end
+  def show; end
 
   # GET /albums/new
   def new

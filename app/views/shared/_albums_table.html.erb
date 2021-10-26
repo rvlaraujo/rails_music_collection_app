@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Artist</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @albums.each do |album| %>
+        <tr>
+          <td><%= album.name %></td>
+          <td><%= album.year %></td>
+          <td><%= artist_name(album.artist_id) %></td>
+          <td>
+            <%= link_to 'Show', album, class: 'btn btn-info text-white btn-sm' %>
+            <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-warning text-white btn-sm' %>
+            <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <td class="fw-bold">Total of <%= @albums.size %> Albuns</td>
+    </tfoot>
+  </table>
+</div>
