@@ -16,6 +16,14 @@
     <section class="bg-light h-custom">
       <div class="container">
         <div class="row mt-5 mb-5 pb-5">
+          <div class="container">
+            <% flash.each do |key, message| %>
+              <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
+                <%= message %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            <% end %>
+          </div>
           <%= yield %>
         </div>
       </div>
