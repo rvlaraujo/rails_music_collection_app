@@ -13,10 +13,10 @@
     <!-- Navbar -->
     <%= render "layouts/shared/navbar" %>
     <!-- Main Content -->
-    <section class="bg-light h-custom">
+    <section class="bg-white h-custom">
       <div class="container">
         <div class="row mt-5 mb-5 pb-5">
-          <div class="container">
+          <div class="container mt-3">
             <% flash.each do |key, message| %>
               <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-center" role="alert">
                 <%= message %>

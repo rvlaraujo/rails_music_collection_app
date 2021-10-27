@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 fixed-top">
   <div class="container">
-    <%= link_to "Rails Collection Music", root_path, class: 'navbar-brand' %>
+    <%= image_tag 'rails-collection-music-logo.svg', class: 'd-inline-block align-text-top brand-image' %>
+    <%= link_to "Rails Collection Music", root_path, class: 'navbar-brand bg-transparent' %>
     <button class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -8,16 +9,18 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id='navmenu'>
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto fw-bold">
         <li class="nav-item">
-          <%= link_to "Artistas", artists_path, class: "nav-link" %>
+          <%= link_to "Artistas", artists_path, class: "nav-link bg-transparent" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Albums", albums_path, class: "nav-link" %>
+          <%= link_to "Albums", albums_path, class: "nav-link bg-transparent" %>
         </li>
         <li class="nav-item">
-          <%= render "layouts/shared/devise/login_items" %>
-        </li> 
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link bg-transparent" %>
+          </li>
+        </li>
       </ul>
     </div>
   </div>

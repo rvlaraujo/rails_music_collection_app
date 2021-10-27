@@ -1,17 +1,8 @@
 <div class="row">
   <h1>Albums</h1>
 </div>
-<div class="row">
-  <div class="col-md align-self-end offset-md">
-    <%= link_to new_album_path, class: 'btn btn-success text-white' do %>
-      <i class="bi bi-plus-lg"></i> New Album
-    <% end %>
-  </div>
-</div>
+<%= render "new_album" %>
 <!-- Albuns list -->
 <%= render "shared/albums_table" %>
-<div class="col-md">
-  <%= link_to new_album_path, class: 'btn btn-success text-white' do %>
-    <i class="bi bi-plus-lg"></i> New Album
-  <% end %>
-</div>
+<!-- add new album -->
+<%= render "new_album" %>

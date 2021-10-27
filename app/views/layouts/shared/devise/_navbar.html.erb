@@ -1,7 +1,8 @@
 <!-- NavBar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
   <div class="container">
-    <%= link_to "Rails Collection Music", new_session_path(resource_name), class: 'navbar-brand' %>
+    <%= image_tag 'rails-collection-music-logo.svg', class: 'd-inline-block align-text-top brand-image' %>
+    <%= link_to "Rails Collection Music", new_session_path(resource_name), class: 'navbar-brand bg-transparent' %>
     <button class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -9,12 +10,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id='navmenu'>
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto fw-bold">
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <li class="nav-item">
+            <%= link_to "Register", new_registration_path(resource_name), class: 'nav-link bg-transparent' %>
+          </li>
+        <% end %>
         <li class="nav-item">
-          <a href="https://gitlab.com/rvlaraujo/rails_music_collection_app" target="_blank" class="nav-link">GitLab Repository</a>
+          <a href="https://gitlab.com/rvlaraujo/rails_music_collection_app" target="_blank" class="nav-link bg-transparent">GitLab Repository</a>
         </li>
         <li class="nav-item">
-          <a href="https://gitlab.com/-/snippets/2167416" target="_blank" class="nav-link">About</a>
+          <a href="https://gitlab.com/-/snippets/2167416" target="_blank" class="nav-link bg-transparent">About</a>
         </li>
       </ul>
     </div>

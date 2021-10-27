@@ -32,3 +32,12 @@
   height: 1px;
   background: #eee;
 }
+
+.join-now:hover {
+  color: #dc3545 !important;
+}
+
+.brand-image {
+  height: 36px;
+  margin-right: 1%;
+}

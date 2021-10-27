@@ -15,9 +15,9 @@
           <td><%= album.year %></td>
           <td><%= artist_name(album.artist_id) %></td>
           <td>
-            <%= link_to 'Show', album, class: 'btn btn-info text-white btn-sm' %>
-            <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-warning text-white btn-sm' %>
-            <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white btn-sm' %>
+            <%= link_to 'Show', album, class: 'btn btn-primary text-white btn-sm fw-bold' %>
+            <%= link_to 'Edit', edit_album_path(album), class: 'btn btn-secondary text-white btn-sm fw-bold' %>
+            <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger text-white btn-sm fw-bold' %>
           </td>
         </tr>
       <% end %>

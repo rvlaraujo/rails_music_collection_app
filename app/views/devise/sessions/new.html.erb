@@ -8,7 +8,7 @@
     </p>
     <p class="text-center lead my-4">Don't have an account?
       <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        <%= link_to "Join Now!", new_registration_path(resource_name), class: 'link-danger fw-bold' %><br />
+        <%= link_to "Join Now!", new_registration_path(resource_name), class: 'fw-bold bg-transparent text-success join-now' %>
       <% end %>
     </p>
     <%= image_tag 'rails-collection-music-logo.svg', class: 'img-fluid'%>
@@ -17,6 +17,14 @@
     <h2 class="text-center">Log in</h2>
     <div class="divider d-flex align-items-center my-4">
       <p class="text-center fw-bold mx-3 mb-0"></p>
+    </div>
+    <div>
+      <% flash.each do |key, message| %>
+        <div class="alert <%= flash_class(key) %> alert-dismissible fade show text-justify mt-5" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-outline mb-4">
