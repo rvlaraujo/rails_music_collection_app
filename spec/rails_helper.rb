@@ -9,6 +9,7 @@ require 'support/capybara'
 require 'support/factory_bot'
 require 'support/shoulda_matchers'
 require 'support/warden'
+require 'faker'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
