@@ -5,4 +5,6 @@
 <!-- Albuns list -->
 <%= render "shared/albums_table" %>
 <!-- add new album -->
-<%= render "new_album" %>
+<div class="col-md-4">
+  <%= paginate @albums %>
+</div>
