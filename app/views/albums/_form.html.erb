@@ -1,14 +1,14 @@
 <%= form_with(model: album) do |form| %>
   <% if album.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
-      <ul>
+    <div class="alert alert-danger text-start" role="alert">
+      <p><strong><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</strong></p>
+      <ul class="list-unstyled">
         <% album.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <div class="form-outline mb-4 text-start">
     <%= form.label :artist_id, class: 'text-start form-label fw-bold' %>
     <%= form.select :artist_id, @artists.collect { |artist| [artist.name, artist.id] }, {}, { :class => 'form-control form-control-lg' } %>
