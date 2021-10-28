@@ -4,28 +4,6 @@ This is a simple Ruby on Rails full stack application to manage music albums, a 
 
 More details about of the test requirements can be finding [here](https://gitlab.com/-/snippets/2167416)
 
-- [Rails Collection Music App](#rails-collection-music-app)
-    - [NOTE](#note)
-  - [GETTING START](#getting-start)
-  - [System dependencies](#system-dependencies)
-  - [Running the project](#running-the-project)
-    - [Cloning the project](#cloning-the-project)
-      - [From GitHub](#from-github)
-      - [From GitLab](#from-gitlab)
-    - [Running App with Docker and Docker-compose](#running-app-with-docker-and-docker-compose)
-    - [Running App WITHOUT Docker and Docker-compose](#running-app-without-docker-and-docker-compose)
-      - [Configure the PostgreSQL](#configure-the-postgresql)
-      - [Installing Ruby and Rails](#installing-ruby-and-rails)
-      - [Install Gems](#install-gems)
-      - [Adding Twitter Bootstrap 5](#adding-twitter-bootstrap-5)
-    - [Configure databaese](#configure-databaese)
-      - [Runs the application](#runs-the-application)
-    - [Accessing the application](#accessing-the-application)
-  - [Running tests](#running-tests)
-    - [With Docker and Docker-compose](#with-docker-and-docker-compose)
-    - [WITHOUT Docker and Docker-compose](#without-docker-and-docker-compose)
-  - [CONTACT](#contact)
-
 ### NOTE
 
 Just keep in mind this application are not completeness of features or design.
@@ -90,6 +68,31 @@ Create the database, runs the migrations and seeds:
 docker-compose run web rails db:setup
 ```
 
+Precompile assets with webpacker:
+
+```bash
+docker-compose run web rails webpacker:install
+```
+
+When appears:
+
+```bash
+identical  config/webpacker.yml
+Copying webpack core config
+       exist  config/webpack
+   identical  config/webpack/development.js
+    conflict  config/webpack/environment.js
+Overwrite /myapp/config/webpack/environment.js? (enter "h" for help) [Ynaqdhm]
+```
+
+Select: 'n'
+
+Run:
+
+```bash
+docker-compose run web rails webpacker:compile
+```
+
 Runing the containers:
 
 ```bash
@@ -131,11 +134,38 @@ In the root of project, run the following command:
 yarn add bootstrap jquery @popperjs/core bootstrap-icons
 ```
 
-### Configure databaese
+#### Configure database
 
 For create the database, runs the migrations and seeds, runs the following command:
 ```bash
 rails db:setup
+```
+
+#### Precompile assets with webpacker
+
+Install webpacker
+
+```bash
+rails webpacker:install
+```
+
+When appears:
+
+```bash
+identical  config/webpacker.yml
+Copying webpack core config
+       exist  config/webpack
+   identical  config/webpack/development.js
+    conflict  config/webpack/environment.js
+Overwrite /myapp/config/webpack/environment.js? (enter "h" for help) [Ynaqdhm]
+```
+
+Select: 'n'
+
+Run:
+
+```bash
+rails webpacker:compile
 ```
 
 #### Runs the application
@@ -163,7 +193,6 @@ If you runs seeds.rb file, the application has 2 users:
 
 But you are free for registration new users. After registration of a new user, you're automatically login in the application.
 
-
 The main page of the application list all allowed users, provided by endpoints in the [test decription](https://gitlab.com/-/snippets/2167416)
 
 ## Running tests
@@ -177,7 +206,6 @@ docker-compose run web rspec --format documentation
 ```
 
 For more informations about runs RSpec tests, see [RSpec Running Specs](https://github.com/rspec/rspec-rails#running-specs).
-
 
 ### WITHOUT Docker and Docker-compose
 
