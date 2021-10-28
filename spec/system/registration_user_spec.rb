@@ -2,7 +2,6 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe 'Registration Users', type: :system do
-
   it 'Registration a user with blank username' do
     visit new_user_registration_path
     fill_in 'Username', with: ''
@@ -48,7 +47,7 @@ RSpec.describe 'Registration Users', type: :system do
 
     click_on 'Sign up'
 
-    expect(page).to have_content("Full name is too short (minimum is 8 characters)")
+    expect(page).to have_content('Full name is too short (minimum is 8 characters)')
   end
 
   it 'Registration a user with blank passowrd' do
@@ -72,7 +71,7 @@ RSpec.describe 'Registration Users', type: :system do
 
     click_on 'Sign up'
 
-    expect(page).to have_content("Password is too short (minimum is 6 characters)")
+    expect(page).to have_content('Password is too short (minimum is 6 characters)')
   end
 
   it 'Try to registrate a valid user' do
