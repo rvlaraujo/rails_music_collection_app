@@ -10,6 +10,8 @@ More details about of the test requirements can be finding [here](https://gitlab
   - [System dependencies](#system-dependencies)
   - [Running the project](#running-the-project)
     - [Cloning the project](#cloning-the-project)
+      - [From GitHub](#from-github)
+      - [From GitLab](#from-gitlab)
     - [Running App with Docker and Docker-compose](#running-app-with-docker-and-docker-compose)
     - [Running App WITHOUT Docker and Docker-compose](#running-app-without-docker-and-docker-compose)
       - [Configure the PostgreSQL](#configure-the-postgresql)
@@ -52,7 +54,18 @@ These instructions will provide a copy of the project up and running on your loc
 
 To get started with the app, first clone the repo and cd into the directory:
 
+#### From GitHub
+
 ```bash
+## GitHub Repository
+git clone git@github.com:rvlaraujo/rails_music_collection_app.git
+cd rails_music_collection_app
+```
+
+#### From GitLab
+
+```bash
+## GitLab Repository
 git clone git@gitlab.com:rvlaraujo/rails_music_collection_app.git
 cd rails_music_collection_app
 ```
@@ -178,7 +191,7 @@ For more informations about runs RSpec tests, see [RSpec Running Specs](https://
 
 ## CONTACT
 
-Comments and feedback are welcome. Send an email to Rafael Viana Lopes Araújo
+Comments and feedback are welcome.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/rafael-viana-75529b32)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rvlaraujo)
