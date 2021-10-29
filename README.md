@@ -4,9 +4,20 @@ This is a simple Ruby on Rails full stack application to manage music albums, a 
 
 More details about of the test requirements can be finding [here](https://gitlab.com/-/snippets/2167416)
 
-### NOTE
+### NOTES
 
-Just keep in mind this application are not completeness of features or design.
+* Just keep in mind this application are not completeness of features or design;
+* Pagination feature added with [kaminari](https://github.com/kaminari/kaminari);
+* The provided endpoint are not restful, so it's not possible to use Active Resource ([ARes](https://github.com/rails/activeresource));
+* For best use of the endpoints, a Client (wrapper) for them was created. Inside each client methods, the services objects pattern (controversial, I know) is used to mount the response with one, or set of, Artist model class;
+* For authentication, the [devise](https://github.com/heartcombo/devise) gem is used;
+* Because authorization is so basic, for only one action in a specific action, it was made with a method in the Albums controller
+* For tests, the following gems are used:
+  * [rspec-rails](https://github.com/rspec/rspec-rails)
+  * [capybara](https://github.com/teamcapybara/capybara)
+  * [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+  * [factorybot rails](https://github.com/thoughtbot/factory_bot_rails)
+  * [faker](https://github.com/faker-ruby/faker)
 
 ## GETTING START
 
